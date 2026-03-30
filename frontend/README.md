@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 前端 — BiliMind 收藏夹知识库
 
-## Getting Started
+> 来自 [via007/bilibili-rag](https://github.com/via007/bilibili-rag) 的分支 · 本分支包含前端质量审计与修复
 
-First, run the development server:
+## 技术栈
+
+- **Next.js 16** (App Router + Turbopack)
+- **React 19**
+- **Tailwind CSS v4**
+- **TypeScript**
+
+## 开发
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 目录结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+frontend/
+├── app/                  # Next.js App Router
+│   ├── page.tsx          # 主页面（SSR Server Component）
+│   ├── HomeClient.tsx     # 交互逻辑（Client Component）
+│   ├── layout.tsx        # Root Layout
+│   └── globals.css       # 全局样式 + 设计系统
+├── components/           # UI 组件
+│   ├── ChatPanel.tsx         # 对话面板（流式 SSE）
+│   ├── SourcesPanel.tsx     # 收藏夹侧边栏
+│   ├── LoginModal.tsx       # B站扫码登录
+│   ├── DemoFlowModal.tsx    # 检索流程演示
+│   └── OrganizePreviewModal.tsx  # 一键整理预览
+└── lib/
+    └── api.ts           # API 客户端
+```
 
-## Learn More
+## 设计系统
 
-To learn more about Next.js, take a look at the following resources:
+使用 CSS 自定义属性定义设计令牌：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 令牌 | 值 | 用途 |
+|------|-----|------|
+| `--ink` | `#1b1713` | 主文字 |
+| `--paper` | `#f7f1e8` | 背景 |
+| `--accent` | `#d98b2b` | 强调色 |
+| `--teal` | `#2f7c78` | 辅助色 |
+| `--border` | `#dccbb4` | 边框 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+字体：ZCOOL XiaoWei（标题） + Noto Sans SC（正文）
 
-## Deploy on Vercel
+## 本分支修复内容
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- QR 码图片动态 alt 文本（无障碍）
+- 用户信息区文字对比度修复（WCAG AA）
+- 流式对话 RAF 批量状态更新（性能）
+- SSR 拆分：page.tsx 改为 Server Component
+- 收藏夹展开按钮键盘可访问（WCAG）
+- 移除 next.config.ts 废弃的 env 配置

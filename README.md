@@ -1,4 +1,6 @@
-# 🚀 Bilibili RAG：把收藏夹变成可对话的知识库
+# 🚀 BiliMind：把收藏夹变成可对话的知识库
+
+> Forked from [via007/bilibili-rag](https://github.com/via007/bilibili-rag) · 本分支进行了前端质量审计与修复
 
 把你在 B 站收藏的访谈/演讲/课程，变成可检索、可追溯来源的**个人知识库**。  
 适合：访谈/演讲/课程、技术视频与学习视频整理、公开课复盘、知识总结、会议/分享回顾、播客内容归档等。
@@ -27,6 +29,7 @@
 
 ## ⭐ Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=via007/bilibili-rag&type=Date)](https://star-history.com/#via007/bilibili-rag&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Shaojie66/bilibili-rag&type=Date)](https://star-history.com/#Shaojie66/bilibili-rag&Date)
 
 ---
 
